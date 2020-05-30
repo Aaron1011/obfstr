@@ -1,6 +1,9 @@
 // Ensures the macro machinery works outside the scope of the crate itself...
 #[test]
 fn main() {
+	let (a, b) = (obfstr::random!(u64), obfstr::random!(u64));
+	assert_ne!(a, b);
+
 	assert_eq!(obfstr::obfstr!("Hello world"), "Hello world");
 
 	assert_eq!(obfstr::obfstr!("This literal is very very very long to see if it correctly handles long string"),
